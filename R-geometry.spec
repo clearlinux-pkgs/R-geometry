@@ -4,19 +4,17 @@
 #
 Name     : R-geometry
 Version  : 0.4.0
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/geometry_0.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/geometry_0.4.0.tar.gz
 Summary  : Mesh Generation and Surface Tessellation
 Group    : Development/Tools
-License  : GPL-3.0
+License  : GPL-3.0 Qhull
 Requires: R-geometry-lib = %{version}-%{release}
-Requires: R-Rcpp
-Requires: R-RcppProgress
-Requires: R-lpSolve
-Requires: R-magic
+Requires: R-abind
 BuildRequires : R-Rcpp
 BuildRequires : R-RcppProgress
+BuildRequires : R-abind
 BuildRequires : R-lpSolve
 BuildRequires : R-magic
 BuildRequires : buildreq-R
@@ -46,10 +44,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550540069
+export SOURCE_DATE_EPOCH=1552791271
 
 %install
-export SOURCE_DATE_EPOCH=1550540069
+export SOURCE_DATE_EPOCH=1552791271
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -85,8 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library geometry|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  geometry || :
 
 
 %files
@@ -163,7 +160,24 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/geometry/help/paths.rds
 /usr/lib64/R/library/geometry/html/00Index.html
 /usr/lib64/R/library/geometry/html/R.css
-/usr/lib64/R/library/geometry/libs/symbols.rds
+/usr/lib64/R/library/geometry/tests/spelling.R
+/usr/lib64/R/library/geometry/tests/testthat.R
+/usr/lib64/R/library/geometry/tests/testthat/test-cart2pol.R
+/usr/lib64/R/library/geometry/tests/testthat/test-cart2sph.R
+/usr/lib64/R/library/geometry/tests/testthat/test-convhulln.R
+/usr/lib64/R/library/geometry/tests/testthat/test-delaunayn.R
+/usr/lib64/R/library/geometry/tests/testthat/test-distmesh2d.R
+/usr/lib64/R/library/geometry/tests/testthat/test-extprod3d.R
+/usr/lib64/R/library/geometry/tests/testthat/test-halfspacen.R
+/usr/lib64/R/library/geometry/tests/testthat/test-inhulln.R
+/usr/lib64/R/library/geometry/tests/testthat/test-intersectn.R
+/usr/lib64/R/library/geometry/tests/testthat/test-parallel.R
+/usr/lib64/R/library/geometry/tests/testthat/test-pol2cart.R
+/usr/lib64/R/library/geometry/tests/testthat/test-polyarea.R
+/usr/lib64/R/library/geometry/tests/testthat/test-sph2cart.R
+/usr/lib64/R/library/geometry/tests/testthat/test-tsearch-tsearchn-comparison.R
+/usr/lib64/R/library/geometry/tests/testthat/test-tsearch.R
+/usr/lib64/R/library/geometry/tests/testthat/test-tsearchn.R
 
 %files lib
 %defattr(-,root,root,-)
