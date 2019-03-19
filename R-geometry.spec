@@ -4,14 +4,13 @@
 #
 Name     : R-geometry
 Version  : 0.4.0
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/geometry_0.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/geometry_0.4.0.tar.gz
 Summary  : Mesh Generation and Surface Tessellation
 Group    : Development/Tools
 License  : GPL-3.0 Qhull
 Requires: R-geometry-lib = %{version}-%{release}
-Requires: R-abind
 BuildRequires : R-Rcpp
 BuildRequires : R-RcppProgress
 BuildRequires : R-abind
@@ -44,10 +43,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552791271
+export SOURCE_DATE_EPOCH=1552957044
 
 %install
-export SOURCE_DATE_EPOCH=1552791271
+export SOURCE_DATE_EPOCH=1552957044
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
