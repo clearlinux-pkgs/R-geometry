@@ -4,7 +4,7 @@
 #
 Name     : R-geometry
 Version  : 0.4.4
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/geometry_0.4.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/geometry_0.4.4.tar.gz
 Summary  : Mesh Generation and Surface Tessellation
@@ -12,8 +12,6 @@ Group    : Development/Tools
 License  : GPL-3.0 Qhull
 Requires: R-geometry-lib = %{version}-%{release}
 Requires: R-Rcpp
-Requires: R-RcppProgress
-Requires: R-abind
 Requires: R-linprog
 Requires: R-lpSolve
 Requires: R-magic
@@ -24,17 +22,16 @@ BuildRequires : R-linprog
 BuildRequires : R-lpSolve
 BuildRequires : R-magic
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-available in R, in a similar manner as in Octave and MATLAB. Qhull
-    computes convex hulls, Delaunay triangulations, halfspace
-    intersections about a point, Voronoi diagrams, furthest-site
-    Delaunay triangulations, and furthest-site Voronoi diagrams. It
-    runs in 2D, 3D, 4D, and higher dimensions. It implements the
-    Quickhull algorithm for computing the convex hull. Qhull does not
-    support constrained Delaunay triangulations, or mesh generation of
-    non-convex objects, but the package does include some R functions
-    that allow for this.
+Name
+qhull, rbox         2015.2       2016/01/18
+
+Convex hull, Delaunay triangulation, Voronoi diagrams, Halfspace intersection
+Documentation:
+html/index.htm
+<http://www.qhull.org/html>
 
 %package lib
 Summary: lib components for the R-geometry package.
@@ -52,10 +49,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567570035
+export SOURCE_DATE_EPOCH=1571837039
 
 %install
-export SOURCE_DATE_EPOCH=1567570035
+export SOURCE_DATE_EPOCH=1571837039
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
