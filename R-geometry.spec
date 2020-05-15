@@ -4,7 +4,7 @@
 #
 Name     : R-geometry
 Version  : 0.4.5
-Release  : 33
+Release  : 34
 URL      : https://cran.r-project.org/src/contrib/geometry_0.4.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/geometry_0.4.5.tar.gz
 Summary  : Mesh Generation and Surface Tessellation
@@ -24,13 +24,15 @@ BuildRequires : R-magic
 BuildRequires : buildreq-R
 
 %description
-Name
-qhull, rbox         2015.2       2016/01/18
-
-Convex hull, Delaunay triangulation, Voronoi diagrams, Halfspace intersection
-Documentation:
-html/index.htm
-<http://www.qhull.org/html>
+available in R, in a similar manner as in Octave and MATLAB. Qhull
+    computes convex hulls, Delaunay triangulations, halfspace
+    intersections about a point, Voronoi diagrams, furthest-site
+    Delaunay triangulations, and furthest-site Voronoi diagrams. It
+    runs in 2D, 3D, 4D, and higher dimensions. It implements the
+    Quickhull algorithm for computing the convex hull. Qhull does not
+    support constrained Delaunay triangulations, or mesh generation of
+    non-convex objects, but the package does include some R functions
+    that allow for this.
 
 %package lib
 Summary: lib components for the R-geometry package.
@@ -42,21 +44,22 @@ lib components for the R-geometry package.
 
 %prep
 %setup -q -c -n geometry
+cd %{_builddir}/geometry
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575577665
+export SOURCE_DATE_EPOCH=1589576773
 
 %install
-export SOURCE_DATE_EPOCH=1575577665
+export SOURCE_DATE_EPOCH=1589576773
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
