@@ -4,7 +4,7 @@
 #
 Name     : R-geometry
 Version  : 0.4.6
-Release  : 50
+Release  : 51
 URL      : https://cran.r-project.org/src/contrib/geometry_0.4.6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/geometry_0.4.6.tar.gz
 Summary  : Mesh Generation and Surface Tessellation
