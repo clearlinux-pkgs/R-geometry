@@ -4,7 +4,7 @@
 #
 Name     : R-geometry
 Version  : 0.4.7
-Release  : 55
+Release  : 56
 URL      : https://cran.r-project.org/src/contrib/geometry_0.4.7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/geometry_0.4.7.tar.gz
 Summary  : Mesh Generation and Surface Tessellation
@@ -23,9 +23,6 @@ BuildRequires : R-linprog
 BuildRequires : R-lpSolve
 BuildRequires : R-magic
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 available in R, in a similar manner as in Octave and MATLAB. Qhull
@@ -64,10 +61,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675638555
+export SOURCE_DATE_EPOCH=1678821328
 
 %install
-export SOURCE_DATE_EPOCH=1675638555
+export SOURCE_DATE_EPOCH=1678821328
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/R-geometry
 cp %{_builddir}/geometry/inst/doc/LICENSE-NOTES %{buildroot}/usr/share/package-licenses/R-geometry/f6014601c3cdc318e2c189412b4c0b5db0a6c2b9 || :
